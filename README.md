@@ -46,12 +46,12 @@ Open Terminal: Navigate to the directory containing the lms folder (not inside t
 
 Compile:
 
-javac lms/*.java
+javac lmsManager.java
 
 
 Run:
 
-java lms.LmsManager
+java lmsManager
 
 
 Simulation Workflow
@@ -73,5 +73,6 @@ Learning: The Student accesses course materials and tracks their progress.
 Management: The Instructor views enrollment stats and sends a welcome message to students.
 
 Note on Output
+
 
 The console output currently uses the placeholder "MyName" in various status messages (e.g., login/logout confirmations) as requested. You can modify the System.out.println statements in the respective classes to use dynamic variable names (like this.username) if needed.
