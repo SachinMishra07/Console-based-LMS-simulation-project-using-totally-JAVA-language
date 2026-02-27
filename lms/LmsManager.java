@@ -7,9 +7,9 @@ public class LmsManager {
         System.out.println("--- LMS Workflow Simulation ---");
 
         // Initialize users with specific roles
-        Admin admin = new Admin("admin_Sachin", "Sachin@lms.com", "Sachin123");
-        Instructor instructor = new Instructor("prof_S_ita", "_S_ita@uni.com", "_S_ita123");
-        Student student = new Student("student_S_ita", "_S_ita@mail.com", "_S_ita123");
+        Admin admin = new Admin("admin_ShashikantSir", "Shashikant_Sir@lms.com", "Shashikant_Sir123");
+        Instructor instructor = new Instructor("prof_Shashikant_Sir", "Shashikant_Sir@uni.com", "Shashikant_Sir123");
+        Student student = new Student("studentSachin", "Sachin_@mail.com", "Sachin_123");
 
         // Simulate login for all users
         admin.login();
@@ -43,7 +43,7 @@ public class LmsManager {
         student.accessMaterials(javaCourse);
 
         // Student updates their profile information
-        student.updateProfile("_S_ita.doe@mail.com", "Sita123");
+        student.updateProfile("Sachin.doe@mail.com", "Sachin123");
 
         // Student records progress
         student.addAchievement("Completed Chapter 1 Quiz");
@@ -58,4 +58,5 @@ public class LmsManager {
 
         System.out.println("\n--- Simulation Complete ---");
     }
+
 }
