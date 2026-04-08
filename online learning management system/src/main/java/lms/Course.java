@@ -4,16 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Represents a Course in the Learning Management System.
- * 
- * Features:
- * - Course creation and management
- * - Student enrollment tracking
- * - Course material management
- * - Course approval workflow
- * - Input validation for all course data
- */
+
 public class Course {
     private String courseId;
     private String title;
@@ -26,14 +17,6 @@ public class Course {
     private int maxCapacity;
     private int enrollmentCount;
 
-    /**
-     * Constructor for Course with validation.
-     * @param title the course title
-     * @param description the course description
-     * @param syllabus the course syllabus
-     * @param instructor the instructor creating the course
-     * @throws CourseException if any parameter is invalid
-     */
     public Course(String title, String description, String syllabus, Instructor instructor) 
             throws CourseException {
         if (!ValidationUtil.isValidCourseTitle(title)) {
@@ -61,11 +44,6 @@ public class Course {
         this.enrollmentCount = 0;
     }
 
-    /**
-     * Adds a student to the course with validation.
-     * @param student the student to enroll
-     * @throws EnrollmentException if enrollment fails
-     */
     public void addStudent(Student student) throws EnrollmentException {
         if (student == null) {
             throw new EnrollmentException("Invalid student. Cannot be null.");
@@ -85,11 +63,6 @@ public class Course {
         System.out.println("✓ Student '" + student.getUsername() + "' added to course '" + title + "'.");
     }
 
-    /**
-     * Removes a student from the course.
-     * @param student the student to remove
-     * @return true if successful, false otherwise
-     */
     public boolean removeStudent(Student student) {
         if (enrolledStudents.remove(student)) {
             enrollmentCount--;
@@ -99,11 +72,6 @@ public class Course {
         return false;
     }
 
-    /**
-     * Adds material to the course with validation.
-     * @param material the material to add
-     * @throws CourseException if material is invalid
-     */
     public void addMaterial(CourseMaterial material) throws CourseException {
         if (material == null) {
             throw new CourseException("Material cannot be null.");
@@ -115,11 +83,6 @@ public class Course {
         System.out.println("✓ Material '" + material.getTitle() + "' added to course '" + title + "'.");
     }
 
-    /**
-     * Removes material from the course.
-     * @param material the material to remove
-     * @return true if successful, false otherwise
-     */
     public boolean removeMaterial(CourseMaterial material) {
         if (materials.remove(material)) {
             System.out.println("✓ Material '" + material.getTitle() + "' removed from course '" + title + "'.");
@@ -128,7 +91,6 @@ public class Course {
         return false;
     }
 
-    // Getters and Setters
     public String getCourseId() {
         return courseId;
     }
@@ -137,11 +99,6 @@ public class Course {
         return title;
     }
 
-    /**
-     * Updates course title with validation.
-     * @param title the new title
-     * @throws CourseException if title is invalid
-     */
     public void setTitle(String title) throws CourseException {
         if (!ValidationUtil.isValidCourseTitle(title)) {
             throw new CourseException("Invalid course title. Must be 3-100 characters.");
@@ -153,11 +110,6 @@ public class Course {
         return description;
     }
 
-    /**
-     * Updates course description with validation.
-     * @param description the new description
-     * @throws CourseException if description is invalid
-     */
     public void setDescription(String description) throws CourseException {
         if (!ValidationUtil.isValidDescription(description)) {
             throw new CourseException("Invalid description. Must be 10-1000 characters.");
@@ -169,11 +121,6 @@ public class Course {
         return syllabus;
     }
 
-    /**
-     * Updates course syllabus with validation.
-     * @param syllabus the new syllabus
-     * @throws CourseException if syllabus is invalid
-     */
     public void setSyllabus(String syllabus) throws CourseException {
         if (!ValidationUtil.isValidSyllabus(syllabus)) {
             throw new CourseException("Invalid syllabus. Must be 10-2000 characters.");
@@ -210,11 +157,6 @@ public class Course {
         return maxCapacity - enrollmentCount;
     }
 
-    /**
-     * Sets the maximum enrollment capacity.
-     * @param capacity the new capacity
-     * @throws CourseException if capacity is invalid
-     */
     public void setMaxCapacity(int capacity) throws CourseException {
         if (capacity <= 0) {
             throw new CourseException("Capacity must be greater than 0.");
@@ -230,10 +172,6 @@ public class Course {
         return new ArrayList<>(materials);
     }
 
-    /**
-     * Gets material count.
-     * @return number of materials in the course
-     */
     public int getMaterialCount() {
         return materials.size();
     }
