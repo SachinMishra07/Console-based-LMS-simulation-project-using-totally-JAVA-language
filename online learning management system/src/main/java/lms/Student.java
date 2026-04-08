@@ -3,30 +3,12 @@ package lms;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents a Student user.
- * Inherits from User and implements the StudentDashboard functionalities.
- * 
- * Features:
- * - Course enrollment with validation
- * - Access course materials
- * - Track progress and achievements
- * - Update profile with validation
- * - Error handling for invalid operations
- */
 public class Student extends User implements StudentDashboard {
 
     private List<Course> enrolledCourses;
     private List<String> achievements; // Achievement tracking
     private double progressPercentage;
 
-    /**
-     * Constructor for Student with validation.
-     * @param username the username
-     * @param email the email address
-     * @param password the password
-     * @throws ValidationException if any parameter is invalid
-     */
     public Student(String username, String email, String password) throws ValidationException {
         super(username, email, password);
         this.enrolledCourses = new ArrayList<>();
@@ -39,11 +21,6 @@ public class Student extends User implements StudentDashboard {
         return "Student";
     }
 
-    /**
-     * Enrolls the student in a course with validation.
-     * @param course the course to enroll in
-     * @throws EnrollmentException if enrollment fails
-     */
     @Override
     public void enrollInCourse(Course course) throws EnrollmentException {
         if (course == null) {
@@ -66,11 +43,6 @@ public class Student extends User implements StudentDashboard {
         }
     }
 
-    /**
-     * Drops a course.
-     * @param course the course to drop
-     * @return true if successful, false otherwise
-     */
     public boolean dropCourse(Course course) {
         if (enrolledCourses.remove(course)) {
             course.removeStudent(this);
@@ -81,11 +53,6 @@ public class Student extends User implements StudentDashboard {
         return false;
     }
 
-    /**
-     * Allows student to access course materials if enrolled.
-     * @param course the course to access
-     * @throws CourseException if course is not accessible
-     */
     @Override
     public void accessMaterials(Course course) throws CourseException {
         if (course == null) {
@@ -107,9 +74,7 @@ public class Student extends User implements StudentDashboard {
         }
     }
 
-    /**
-     * Tracks student progress.
-     */
+
     @Override
     public void trackProgress() {
         System.out.println("\n--- Progress Report for " + getUsername() + " ---");
@@ -126,12 +91,6 @@ public class Student extends User implements StudentDashboard {
         }
     }
 
-    /**
-     * Updates student profile with validation.
-     * @param newEmail the new email
-     * @param newPassword the new password
-     * @throws ValidationException if update fails
-     */
     @Override
     public void updateProfile(String newEmail, String newPassword) throws ValidationException {
         boolean updated = false;
@@ -159,10 +118,6 @@ public class Student extends User implements StudentDashboard {
         }
     }
 
-    /**
-     * Adds an achievement to the student's record.
-     * @param achievement the achievement description
-     */
     public void addAchievement(String achievement) {
         if (achievement != null && !achievement.trim().isEmpty()) {
             achievements.add(achievement);
@@ -172,11 +127,6 @@ public class Student extends User implements StudentDashboard {
         }
     }
 
-    /**
-     * Updates progress percentage.
-     * @param percentage the progress percentage (0-100)
-     * @throws ValidationException if percentage is invalid
-     */
     public void updateProgress(double percentage) throws ValidationException {
         if (percentage < 0 || percentage > 100) {
             throw new ValidationException("Progress must be between 0 and 100.");
