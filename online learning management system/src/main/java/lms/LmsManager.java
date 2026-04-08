@@ -1,23 +1,8 @@
 package lms;
 
-/**
- * LmsManager - Main application class demonstrating the complete LMS workflow.
- * 
- * This class serves as the entry point for the Learning Management System,
- * demonstrating all major features including:
- * - User registration and authentication
- * - Course creation and approval
- * - Student enrollment and course access
- * - Progress tracking and communication
- * - Administrative operations
- * - Comprehensive error handling
- */
+
 public class LmsManager {
 
-    /**
-     * Main method that demonstrates the complete LMS workflow.
-     * @param args command line arguments (not used)
-     */
     public static void main(String[] args) {
         System.out.println("╔════════════════════════════════════════════════════════╗");
         System.out.println("║  Online Learning Management System (LMS) - v1.0        ║");
