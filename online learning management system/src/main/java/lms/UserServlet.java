@@ -2,23 +2,8 @@ package lms;
 
 import java.io.*;
 
-/**
- * UserServlet - Handles user-related HTTP requests.
- * 
- * This servlet demonstrates how LMS user operations would be handled
- * in a web application context. In a real application, this would
- * integrate with servlets in a web server.
- */
 public class UserServlet {
     
-    /**
-     * Simulates handling user registration request.
-     * @param username the username
-     * @param email the email
-     * @param password the password
-     * @param role the user role (Student, Instructor, Admin)
-     * @return response message
-     */
     public static String handleUserRegistration(String username, String email, String password, String role) {
         try {
             // Validate input
@@ -54,12 +39,6 @@ public class UserServlet {
         }
     }
 
-    /**
-     * Simulates handling user login request.
-     * @param user the user attempting login
-     * @param password the password to verify
-     * @return response message
-     */
     public static String handleUserLogin(User user, String password) {
         try {
             if (user == null) {
@@ -79,13 +58,6 @@ public class UserServlet {
         }
     }
 
-    /**
-     * Simulates handling user profile update request.
-     * @param user the user to update
-     * @param newEmail the new email
-     * @param newPassword the new password
-     * @return response message
-     */
     public static String handleProfileUpdate(User user, String newEmail, String newPassword) {
         try {
             if (user == null) {
@@ -107,11 +79,6 @@ public class UserServlet {
         }
     }
 
-    /**
-     * Simulates handling user logout.
-     * @param user the user logging out
-     * @return response message
-     */
     public static String handleUserLogout(User user) {
         if (user == null) {
             return "ERROR: Invalid user.";
