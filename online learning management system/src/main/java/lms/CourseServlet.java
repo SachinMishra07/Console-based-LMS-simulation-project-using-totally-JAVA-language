@@ -1,22 +1,7 @@
 package lms;
 
-/**
- * CourseServlet - Handles course-related HTTP requests.
- * 
- * This servlet demonstrates how LMS course operations would be handled
- * in a web application context. In a real application, this would
- * integrate with servlets in a web server.
- */
 public class CourseServlet {
-    
-    /**
-     * Simulates handling course creation request.
-     * @param instructor the course instructor
-     * @param title the course title
-     * @param description the course description
-     * @param syllabus the course syllabus
-     * @return response message
-     */
+
     public static String handleCourseCreation(Instructor instructor, String title, 
                                              String description, String syllabus) {
         try {
@@ -44,12 +29,7 @@ public class CourseServlet {
         }
     }
 
-    /**
-     * Simulates handling course approval request.
-     * @param admin the admin user
-     * @param course the course to approve
-     * @return response message
-     */
+
     public static String handleCourseApproval(Admin admin, Course course) {
         try {
             if (admin == null || course == null) {
@@ -65,12 +45,7 @@ public class CourseServlet {
         }
     }
 
-    /**
-     * Simulates handling course rejection request.
-     * @param admin the admin user
-     * @param course the course to reject
-     * @return response message
-     */
+
     public static String handleCourseRejection(Admin admin, Course course) {
         try {
             if (admin == null || course == null) {
@@ -86,15 +61,6 @@ public class CourseServlet {
         }
     }
 
-    /**
-     * Simulates handling course material addition.
-     * @param instructor the course instructor
-     * @param course the course
-     * @param title the material title
-     * @param type the material type
-     * @param content the material content/path
-     * @return response message
-     */
     public static String handleAddMaterial(Instructor instructor, Course course, 
                                           String title, String type, String content) {
         try {
@@ -114,12 +80,6 @@ public class CourseServlet {
         }
     }
 
-    /**
-     * Simulates handling course enrollment statistics request.
-     * @param instructor the course instructor
-     * @param course the course
-     * @return response message with statistics
-     */
     public static String handleEnrollmentStats(Instructor instructor, Course course) {
         try {
             if (instructor == null || course == null) {
