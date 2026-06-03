@@ -29,7 +29,7 @@ public class Course {
             throw new CourseException("Invalid syllabus. Must be 10-2000 characters.");
         }
         if (instructor == null) {
-            throw new CourseException("Course must have a valid instructor.");
+            throw new CourseException("Course must have a valid instructor, Can't be null");
         }
 
         this.courseId = UUID.randomUUID().toString();
@@ -46,7 +46,7 @@ public class Course {
 
     public void addStudent(Student student) throws EnrollmentException {
         if (student == null) {
-            throw new EnrollmentException("Invalid student. Cannot be null.");
+            throw new EnrollmentException("Invalid student. Can't be null.");
         }
         if (enrollmentCount >= maxCapacity) {
             throw new EnrollmentException("Course is at maximum capacity (" + maxCapacity + " students).");
@@ -74,7 +74,7 @@ public class Course {
 
     public void addMaterial(CourseMaterial material) throws CourseException {
         if (material == null) {
-            throw new CourseException("Material cannot be null.");
+            throw new CourseException("Material can't be null.");
         }
         if (materials.contains(material)) {
             throw new CourseException("This material is already added to the course.");
